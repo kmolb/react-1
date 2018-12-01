@@ -3,26 +3,36 @@ import React, {
 } from 'react';
 import './App.css';
 
-class List extends Component{
+class List extends Component {
+
+  constructor(props) {
+    super();
+    this.state = {
+      date: Date.now(),
+    }
+  }
+
+
   handleClick = (e) => {
     console.log('props', this.props.data)
-  }
- // constructor(){
-   // super()
-   // this.handleClick = this.handleClick.bind(this);
-//  }
- // handleClick(e){
+  
+this.setState({
+  date: Date.now(),
+})}
 
- //   console.log('props', this.props.data)
-//  }
- render(){
-    return <div onClick={this.handleClick}>Element</div>;
+  render() {
+    return <div onClick = {
+      this.handleClick
+    } > Element < /div>;
   }
 }
 
 class App extends Component {
-  render(){
-    return <List data={123}/>;
+  render() {
+    return <List data = {
+      123
+    }
+    />;
   }
 }
 
