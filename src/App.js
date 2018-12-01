@@ -1,37 +1,57 @@
 import React, {
-  //Component
+  //Component;
 } from 'react';
 import './App.css';
 
 //funkcje function funkcja(){}
 //komponenty function Komponent(){}
 
-const people = [
+const title = [
   {
-    name: 'Kamil',
-    age: '31',
-    id: 1
+    lable: 'INFOSHARE 2019',
+    id: 1,
+    expandable: true
   },{
-    name: 'Jurek',
-    age: '45',
-    id: 2
+    lable: 'CALL FOR SPEAKERS',
+    id: 2,
+    expandable: false
   },{
-    name: 'Lena',
-    age: '19',
-    id: 3
+    lable: 'AI ROADSHOW',
+    id: 3,
+    expandable: false
+  },{
+    lable: 'STARTUP CONTEST',
+    id: 4,
+    expandable: false
+  },{
+    lable: 'IS PROJECTS',
+    id: 5,
+    expandable: true
+  },{
+    lable: 'BLOG',
+    id: 6,
+    expandable: false
+  },{
+    lable: 'PREVIUS EDITIONS',
+    id: 7,
+    expandable: true
+  },{
+    lable: 'ABOUT IS',
+    id: 8,
+    expandable: true
   }
 ]
 
-function Person(props){
-const {name, age} = props.data;
-return <div>{name} {age}</div>
+function Title(props){
+const {lable, expandable} = props.data;
+return <p> {expandable ? ' |#| ' : ''}{lable}</p>
 }
 
 
 function App() {
-  return people.map((person) => {
-    const { id, ...data } = person;
-    return <Person data={data} key={id}/>
+  return title.map((title) => {
+    const { id, ...data } = title;
+    return <Title data={data} key={id}/>
     
   });
  
