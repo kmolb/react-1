@@ -3,12 +3,26 @@ import React, {
 } from 'react';
 import './App.css';
 
-class App extends Component{
-  handleClick(e){
-    console.log(e)
+class List extends Component{
+  handleClick = (e) => {
+    console.log('props', this.props.data)
   }
-  render(){
+ // constructor(){
+   // super()
+   // this.handleClick = this.handleClick.bind(this);
+//  }
+ // handleClick(e){
+
+ //   console.log('props', this.props.data)
+//  }
+ render(){
     return <div onClick={this.handleClick}>Element</div>;
+  }
+}
+
+class App extends Component {
+  render(){
+    return <List data={123}/>;
   }
 }
 
