@@ -1,22 +1,40 @@
 import React, {
-  Component
+  //Component
 } from 'react';
 import './App.css';
 
 //funkcje function funkcja(){}
 //komponenty function Komponent(){}
 
-const numbers = [1,23,24,345,232,11];
-function Number(props){
-const {value} = props;
-return <div>{value}</div>
+const people = [
+  {
+    name: 'Kamil',
+    age: '31',
+    id: 1
+  },{
+    name: 'Jurek',
+    age: '45',
+    id: 2
+  },{
+    name: 'Lena',
+    age: '19',
+    id: 3
+  }
+]
+
+function Person(props){
+const {name, age} = props.data;
+return <div>{name} {age}</div>
 }
 
 
 function App() {
-  return numbers.map((value) => {
-    return <Number value={value}/>})
-   //<Number value={123}/> 
+  return people.map((person) => {
+    const { id, ...data } = person;
+    return <Person data={data} key={id}/>
+    
+  });
+ 
 }
 
   
