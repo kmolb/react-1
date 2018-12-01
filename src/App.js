@@ -5,17 +5,19 @@ import './App.css';
 
 //funkcje function funkcja(){}
 //komponenty function Komponent(){}
-const obj = {
-  age:232,
-}
-function Button(props){
-  return <div>{props.label.age}</div>
+
+const numbers = [1,23,24,345,232,11];
+function Number(props){
+const {value} = props;
+return <div>{value}</div>
 }
 
+
 function App() {
-  return <Button label={obj}/>  //{123} przekazanie liczby // {false} przekazanie bulin
-   
-  }
+  return numbers.map((value) => {
+    return <Number value={value}/>})
+   //<Number value={123}/> 
+}
 
   
 export default App;
