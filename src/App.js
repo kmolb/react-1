@@ -1,40 +1,40 @@
-import React, {
-  Component
-} from 'react';
+import React, { Component } from 'react';
 import './App.css';
 
-class List extends Component {
+class Counter extends Component {
+  constructor(props){
+    super(props);
 
-  constructor(props) {
-    super();
     this.state = {
-      date: Date.now(),
+      counter: this.props.initValue || 0,
     }
   }
 
+  handleClickPlus = () => {
+    this.setState((state) => ({
+      counter: state.counter + 1
+    }));
+  }
 
-  handleClick = (e) => {
-    console.log('props', this.props.data)
+  handleClickMinus = () => {
+    this.setState((state) => ({
+      counter: state.counter - 1
+    }));
+  }
   
-this.setState({
-  date: Date.now(),
-})}
-
-  render() {
-    return <div onClick = {
-      this.handleClick
-    } > Element < /div>;
+  render(){
+    return <div>
+      <div>Count: {this.state.counter}</div>
+      <div onClick={this.handleClickPlus}>Plus</div>
+      <div onClick={this.handleClickMinus}>Minus</div>
+    </div>;
   }
 }
 
 class App extends Component {
-  render() {
-    return <List data = {
-      123
-    }
-    />;
+  render(){
+    return <Counter initValue={123}/>;
   }
 }
-
 
 export default App;
