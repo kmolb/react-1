@@ -21,12 +21,16 @@ class Counter extends Component {
       counter: state.counter - 1
     }));
   }
+
   
   render(){
+    const {counter} = this.state
     return <div>
-      <div>Count: {this.state.counter}</div>
-      <div onClick={this.handleClickPlus}>Plus</div>
-      <div onClick={this.handleClickMinus}>Minus</div>
+      <div><h2>Count: {counter}</h2></div>
+      <div onClick={this.handleClickPlus}><button>Plus</button></div>
+      <div onClick={this.handleClickMinus}><button>Minus</button></div>
+      {/* {!!(counter % 2) &&<div>Nieparzyste</div> }  */}
+      {!!(counter % 2)? <div>nieparzyste</div> : <div>parzyste</div> } 
     </div>;
   }
 }
